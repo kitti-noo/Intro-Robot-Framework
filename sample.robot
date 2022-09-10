@@ -1,6 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
-Task Teardown  Close Browser
+# Test Setup  Open web google
+Test Teardown  Close Browser
 
 *** Test Cases ***
 TC_001 - Open Google
@@ -9,7 +10,7 @@ TC_001 - Open Google
   Sleep  1s
   Capture Page Screenshot
 
-TC_002 - Search
+TC_002 - Search Google
   [Tags]  demo
   Open web google
   Wait Until Element Is Visible  ${search_title}  5s
@@ -31,6 +32,7 @@ Open web google
   Set Window Size  1920  1080
 
 *** Variables ***
+${browser}  chrome
 ${search_title}  //*[@title="ค้นหา"]
 ${search_button}  //div[@jsname="VlcLAe"]//input[@value="ค้นหาด้วย Google"]
 ${search_text}  robot framework
