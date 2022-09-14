@@ -1,0 +1,4 @@
+robot_title:  //h3[text()='Robot Framework']
+browser: headlesschrome
+url: 
+  google: https://www.google.co.th/
