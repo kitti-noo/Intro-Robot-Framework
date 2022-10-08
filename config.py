@@ -1,0 +1,1 @@
+result_xml_file_path = 'result/result.xml'

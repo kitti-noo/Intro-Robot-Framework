@@ -1,6 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  DependencyLibrary
+Library  utill.py
 Variables  data.yaml
 Suite Teardown  Close Browser
 
@@ -13,7 +14,7 @@ TC_001 - Open Google
 
 TC_002 - Search Google
   [Tags]  demo
-  Depends on test  TC_001 - Open Google
+  Require test case  TC_001 - Open Google
   # Open web google
   Click search text  ${search_robot}
   Click and verify robot page
@@ -41,6 +42,17 @@ Click and verify robot page
   # log to console  ${fe_robot_text}
   log  ${fe_robot_text}
   Capture Page Screenshot
+
+Require test case
+  [Arguments]  ${test_case_name}
+  ${status}  Run Keyword And Return Status  Depends on test  ${test_case_name}
+  IF  '${status}' == 'False'
+    IF  '${rerun}' == 'true'
+      check status depends test case  ${test_case_name}
+    ELSE
+      Fail  depends on test failed
+    END
+  END
 
 *** Variables ***
 ${search_title}  //*[@title="ค้นหา"]
