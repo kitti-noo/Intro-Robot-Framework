@@ -14,5 +14,4 @@ def check_status_depends_test_case(name):
         return
       else:
         raise AssertionError(message + ' failed')
-    else:
-      raise AssertionError(message + ' not found.')
+  raise AssertionError(message + ' not found.')
