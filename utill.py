@@ -10,8 +10,8 @@ def check_status_depends_test_case(name):
     if xunit_test_case == name:
       xunit_test_check = each_test_result.getElementsByTagName("failure")
       if not xunit_test_check:
-        print('test case ' + repr(name) + ' passed')
+        print('test case ' + repr(name) + ' passed.')
         return
       else:
-        raise AssertionError(message + ' failed')
+        raise AssertionError(message + ' failed.')
   raise AssertionError(message + ' not found.')
