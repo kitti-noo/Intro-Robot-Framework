@@ -48,7 +48,7 @@ Require test case
   ${status}  Run Keyword And Return Status  Depends on test  ${test_case_name}
   IF  '${status}' == 'False'
     IF  '${rerun}' == 'true'
-      check test case status from xunit  ${test_case_name}
+      check test case status from xunit  ${test_case_name}  ${xunix_file}
     ELSE
       Fail  depends on test failed
     END

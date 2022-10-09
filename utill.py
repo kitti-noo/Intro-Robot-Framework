@@ -1,9 +1,8 @@
-import config
 import xml.dom.minidom
 
-def check_test_case_status_from_xunit(name):
+def check_test_case_status_from_xunit(name,file):
   message = 'Dependency not met: '+ 'test case ' + repr(name)
-  doc = xml.dom.minidom.parse(config.result_xml_file_path)
+  doc = xml.dom.minidom.parse(file)
   xunit_test_result = doc.getElementsByTagName("testcase")
   for each_test_result in xunit_test_result:
     xunit_test_case = each_test_result.getAttribute("name")
