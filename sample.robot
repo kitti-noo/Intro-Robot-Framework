@@ -45,12 +45,12 @@ Click and verify robot page
 
 Require test case
   [Arguments]  ${test_case_name}
-  ${status}  Run Keyword And Return Status  Depends on test  ${test_case_name}
-  IF  '${status}' == 'False'
+  ${msg}  Run Keyword And Ignore Error  Depends on test  ${test_case_name}
+  IF  '${msg}[0]' == 'FAIL'
     IF  '${rerun}' == 'true'
-      check test case status from xunit  ${test_case_name}  ${xunix_file}
+      check test case status from xunit  ${test_case_name}  ${xunit_file}
     ELSE
-      Fail  depends on test failed
+      Fail  ${msg}[1]
     END
   END
 

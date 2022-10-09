@@ -1,6 +1,6 @@
 robot_title:  //h3[text()='Robot Framework']
 browser: headlesschrome
 rerun: false
-xunix_file: result/result.xml
+xunit_file: result/result.xml
 url: 
   google: https://www.google.co.th/
