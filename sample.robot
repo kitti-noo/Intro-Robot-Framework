@@ -31,6 +31,7 @@ Click search text
   Wait Until Element Is Visible  ${search_title}  10s
   Input Text  ${search_title}  ${search_text}
   Wait Until Element Is Visible  ${search_button}  10s
+  Sleep  2s
   Click Element  ${search_button}
 
 Click and verify robot page
@@ -55,7 +56,7 @@ Require test case
   END
 
 *** Variables ***
-${search_title}  //*[@title="ค้นหา"]
-${search_button}  //div[@jsname="VlcLAe"]//input[@value="ค้นหาด้วย Google"]
+${search_title}  //*[@class="gLFyf gsfi"]
+${search_button}  //div[@jsname="VlcLAe"]//input[@class="gNO89b"]
 ${search_robot}  robot framework
 ${robot_text}  //h1[@class="title"]
