@@ -1,0 +1,20 @@
+** Keywords *** 
+Validate test result 
+  [Arguments]  ${tc_id} 
+  ${result}  Run keyword and return status    Variable should exist    ${${tc_id}.status} 
+  IF  ${result}==${False}  Fail  Marked as failure by another test casepstream test case should be passed[Arguments]  ${tc_id} 
+  ${result}  Run keyword and return status    Variable should exist    ${${tc_id}.status} 
+  IF  ${result}==${False}  Fail  Blocked due to ${tc_id} was failed*** Test Cases *** 
+TC_001 Dummy testing case 101 
+  Log to console  test 
+  Log to console  test TC_002 has been passed 
+  Set global variable  ${TC_002.status}  passed 
+  Fail  test faied at this step 
+  Set global variable  ${TC_003.status}  passed 
+  Set global variable  ${TC_001.status}  passedC_002 Dummy testing case 102 
+  #Part of TC_001 
+  Validate test result  TC_002C_003 Dummy testing case 103 
+  #Part of TC_001 
+  Validate test result  TC_003C_004 Dummy testing case 104 
+  #Require TC_001 to pass before running this test 
+  Upstream test case should be passed  TC_001TTT*U
