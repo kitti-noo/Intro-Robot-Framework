@@ -1,8 +1,8 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  DependencyLibrary
-Library  utill.py
-Variables  data.yaml
+Library  ../utill.py
+Variables  ../data.yaml
 Suite Teardown  Close Browser
 
 *** Test Cases ***
@@ -56,7 +56,7 @@ Require test case
   END
 
 *** Variables ***
-${search_title}  //*[@class="gLFyf gsfi"]
-${search_button}  //div[@jsname="VlcLAe"]//input[@class="gNO89b"]
+${search_title}  //input[@title="ค้นหา" or @title="Search"]
+${search_button}  //input[@aria-label="Google Search" or @aria-label="ค้นหาด้วย Google"]
 ${search_robot}  robot framework
 ${robot_text}  //h1[@class="title"]
